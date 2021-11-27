@@ -1,8 +1,23 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+// import '../styles/globals.css'
+import 'tailwindcss/tailwind.css';
+import type { AppProps } from 'next/app';
+import { Web3ReactProvider } from '@web3-react/core';
+import { ethers } from 'ethers';
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+import { ContractProvider } from '../context/Contract';
+
+function getLibrary(provider: any) {
+  return new ethers.providers.Web3Provider(provider);
 }
 
-export default MyApp
+function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    <Web3ReactProvider getLibrary={getLibrary}>
+      <ContractProvider>
+        <Component {...pageProps} />
+      </ContractProvider>
+    </Web3ReactProvider>
+  );
+}
+
+export default MyApp;
