@@ -93,11 +93,11 @@ export default function Minting() {
 
   return (
     <>
-      <h2 className="text-4xl text-gray-100 mb-4">Minting</h2>
+      <h2 className="text-4xl mb-4">Minting</h2>
 
       {active && account ? (
         <div className="space-y-4 mb-4">
-          <div className="bg-gray-800 border-dashed border-4 border-gray-400 rounded p-8 space-y-4">
+          <div className="bg-gray-800 border-dashed border-4 border-t-red-300 border-r-blue-300 border-b-green-300 border-l-yellow-300 rounded p-8 space-y-4">
             <div className="text-3xl font-bold text-center">
               {totalSupply} / {process.env.NEXT_PUBLIC_MAX_SUPPLY}
             </div>
