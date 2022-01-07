@@ -11,27 +11,21 @@ export default function ConnectButton() {
 
   async function connectMetaMask() {
     if (typeof window.ethereum !== 'undefined') {
-      if (!error) {
-        setIsConnecting(true);
-        try {
-          await activate(injected);
-          setIsConnecting(false);
-          if (
-            chainId &&
-            chainId.toString() !== process.env.NEXT_PUBLIC_NETWORK_ID
-          ) {
-            setErrMsg(
-              `Change the network to ${process.env.NEXT_PUBLIC_NETWORK_ID}.`
-            );
-          }
-        } catch (error) {
-          if (error instanceof Error) setError(error);
-          setIsConnecting(false);
+      setIsConnecting(true);
+      try {
+        await activate(injected);
+        setIsConnecting(false);
+        if (
+          chainId &&
+          chainId.toString() !== process.env.NEXT_PUBLIC_NETWORK_ID
+        ) {
+          setErrMsg(
+            `Change the network to ${process.env.NEXT_PUBLIC_NETWORK_ID}.`
+          );
         }
-      } else {
-        setErrMsg(
-          `Change the network to ${process.env.NEXT_PUBLIC_NETWORK_ID}.`
-        );
+      } catch (error) {
+        if (error instanceof Error) setError(error);
+        setIsConnecting(false);
       }
     } else {
       setErrMsg('Please install MetaMask.');
