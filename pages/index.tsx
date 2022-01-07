@@ -19,7 +19,7 @@ const Home: NextPage = () => {
 
       <Image src={topImage} alt={process.env.NEXT_PUBLIC_NFT_NAME} />
 
-      <div className="bg-pink-600 py-8">
+      <div className="bg-gray-800 py-8">
         <Prose>
           <h1 className="text-5xl font-bold text-gray-100 mb-2">
             {process.env.NEXT_PUBLIC_NFT_NAME}
@@ -36,19 +36,19 @@ const Home: NextPage = () => {
         </Prose>
       </div>
 
-      <div className="bg-green-600 py-8">
+      <div className="py-8">
         <Prose>
           <Minting />
         </Prose>
       </div>
 
-      <div className="bg-yellow-600 py-8">
+      <div className="bg-gray-800 py-8">
         <Prose>
           <Faq />
         </Prose>
       </div>
 
-      <div className="bg-blue-600 py-8">
+      <div className="py-8">
         <Prose>
           <Roadmap />
         </Prose>
