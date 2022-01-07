@@ -21,7 +21,7 @@ const Home: NextPage = () => {
 
       <div className="bg-gray-800 py-8">
         <Prose>
-          <h1 className="text-5xl font-bold text-gray-100 mb-2">
+          <h1 className="text-5xl font-bold mb-2">
             {process.env.NEXT_PUBLIC_NFT_NAME}
           </h1>
           <p className="text-xl">
