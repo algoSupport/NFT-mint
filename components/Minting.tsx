@@ -71,7 +71,9 @@ export default function Minting() {
 
   useEffect(() => {
     async function fetchTotalSupply() {
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const provider = new ethers.providers.JsonRpcProvider(
+        process.env.NEXT_PUBLIC_RPC
+      );
       const contract = new ethers.Contract(
         process.env.NEXT_PUBLIC_CONTRACT_ADDRESS!,
         ABI,
@@ -80,16 +82,8 @@ export default function Minting() {
       const totalSupply = await contract.totalSupply();
       setTotalSupply(totalSupply.toString());
     }
-    if (
-      active &&
-      chainId &&
-      chainId.toString() === process.env.NEXT_PUBLIC_NETWORK_ID
-    ) {
-      fetchTotalSupply();
-    } else {
-      setTotalSupply('?');
-    }
-  }, [active, chainId]);
+    fetchTotalSupply();
+  }, []);
 
   return (
     <>
