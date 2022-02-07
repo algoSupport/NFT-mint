@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { useEffect } from 'react';
 import { useWeb3React } from '@web3-react/core';
 import Blockies from 'react-blockies';
+import ReactTooltip from 'react-tooltip';
 import { FaTwitter, FaDiscord, FaShip } from 'react-icons/fa';
 
 import ConnectButton from './ConnectButton';
@@ -70,11 +71,20 @@ export default function Header() {
             </NextLink>
 
             <div className="flex items-center space-x-2 ml-2 sm:ml-0">
+              <ReactTooltip
+                id="header"
+                place="bottom"
+                type="dark"
+                effect="solid"
+                textColor="#e2e8f0"
+              />
               <a
                 href={process.env.NEXT_PUBLIC_TWITTER_URL}
                 aria-label={`${process.env.NEXT_PUBLIC_NFT_NAME} on Twitter`}
                 rel="noopener noreferrer"
                 target="_blank"
+                data-tip="Twitter"
+                data-for="header"
                 className="bg-gray-700 hover:bg-gray-600 rounded-full p-2"
               >
                 <FaTwitter />
@@ -84,6 +94,8 @@ export default function Header() {
                 aria-label={`${process.env.NEXT_PUBLIC_NFT_NAME} on Discord`}
                 rel="noopener noreferrer"
                 target="_blank"
+                data-tip="Discord"
+                data-for="header"
                 className="bg-gray-700 hover:bg-gray-600 rounded-full p-2"
               >
                 <FaDiscord />
@@ -93,6 +105,8 @@ export default function Header() {
                 aria-label={`${process.env.NEXT_PUBLIC_NFT_NAME} on OpenSea`}
                 rel="noopener noreferrer"
                 target="_blank"
+                data-tip="OpenSea"
+                data-for="header"
                 className="bg-gray-700 hover:bg-gray-600 rounded-full p-2"
               >
                 <FaShip />

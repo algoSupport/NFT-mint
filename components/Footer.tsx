@@ -1,3 +1,4 @@
+import ReactTooltip from 'react-tooltip';
 import { FaHome, FaTwitter, FaDiscord, FaShip } from 'react-icons/fa';
 
 import Container from './Container';
@@ -15,9 +16,18 @@ export default function Footer() {
           </div>
 
           <div className="flex items-center space-x-2 mb-4 sm:mb-0">
+            <ReactTooltip
+              id="footer"
+              place="top"
+              type="dark"
+              effect="solid"
+              textColor="#e2e8f0"
+            />
             <NextLink
               href="/"
               aria-label="Home"
+              data-tip="Home"
+              data-for="footer"
               className="bg-gray-700 hover:bg-gray-600 rounded-full p-2"
             >
               <FaHome />
@@ -27,6 +37,8 @@ export default function Footer() {
               aria-label={`${process.env.NEXT_PUBLIC_NFT_NAME} on Twitter`}
               rel="noopener noreferrer"
               target="_blank"
+              data-tip="Twitter"
+              data-for="footer"
               className="bg-gray-700 hover:bg-gray-600 rounded-full p-2"
             >
               <FaTwitter />
@@ -36,6 +48,8 @@ export default function Footer() {
               aria-label={`${process.env.NEXT_PUBLIC_NFT_NAME} on Discord`}
               rel="noopener noreferrer"
               target="_blank"
+              data-tip="Discord"
+              data-for="footer"
               className="bg-gray-700 hover:bg-gray-600 rounded-full p-2"
             >
               <FaDiscord />
@@ -45,6 +59,8 @@ export default function Footer() {
               aria-label={`${process.env.NEXT_PUBLIC_NFT_NAME} on OpenSea`}
               rel="noopener noreferrer"
               target="_blank"
+              data-tip="OpenSea"
+              data-for="footer"
               className="bg-gray-700 hover:bg-gray-600 rounded-full p-2"
             >
               <FaShip />
