@@ -1,8 +1,12 @@
-import ReactTooltip from 'react-tooltip';
+import dynamic from 'next/dynamic';
 import { FaHome, FaTwitter, FaDiscord, FaShip } from 'react-icons/fa';
 
 import Container from './Container';
 import NextLink from './NextLink';
+
+const ReactTooltip = dynamic(() => import('react-tooltip'), {
+  ssr: false,
+});
 
 const getCurrentYear = () => new Date().getFullYear();
 

@@ -1,8 +1,8 @@
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { useEffect } from 'react';
 import { useWeb3React } from '@web3-react/core';
 import Blockies from 'react-blockies';
-import ReactTooltip from 'react-tooltip';
 import { FaTwitter, FaDiscord, FaShip } from 'react-icons/fa';
 
 import ConnectButton from './ConnectButton';
@@ -11,6 +11,10 @@ import NextLink from './NextLink';
 import { useContractContext } from '../context/Contract';
 import { injected } from '../utils/wallet/connectors';
 import Logo from '../public/assets/logo.png';
+
+const ReactTooltip = dynamic(() => import('react-tooltip'), {
+  ssr: false,
+});
 
 export default function Header() {
   const { activate, setError, chainId, account, active } = useWeb3React();
